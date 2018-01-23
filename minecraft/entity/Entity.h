@@ -171,7 +171,7 @@ public:
     virtual void* handleInsidePortal(BlockPos const&);
     virtual void* getPortalCooldown() const;
     virtual void* getPortalWaitTime() const;
-    virtual void* getDimensionId() const;
+    virtual DimensionId getDimensionId() const;
     virtual bool canChangeDimensions() const;
     virtual void changeDimension(DimensionId, bool);
     virtual void changeDimension(ChangeDimensionPacket const&);
@@ -239,5 +239,6 @@ public:
     void _setLevelPtr(Level*);
     void _setDimension(Dimension&);
     EntityRuntimeID getRuntimeID() const;
+    void _usePortal(DimensionId, DimensionId, int);
 
 };

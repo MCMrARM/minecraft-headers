@@ -8,6 +8,9 @@ class Player;
 class PacketSender;
 class LevelStorage;
 class LevelData;
+class Dimension;
+class ChangeDimensionRequest;
+enum class DimensionId;
 
 class Level : public BlockSourceListener {
 
@@ -33,5 +36,9 @@ public:
 
     void setPacketSender(PacketSender*);
     PacketSender* getPacketSender() const;
+
+    Dimension* createDimension(DimensionId);
+
+    void requestPlayerChangeDimension(Player&, std::unique_ptr<ChangeDimensionRequest>);
 
 };
