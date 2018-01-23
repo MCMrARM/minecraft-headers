@@ -1,7 +1,10 @@
 #pragma once
 
+#include <string>
+#include <vector>
 #include "../entity/EntityRuntimeID.h"
 #include "../math/Vec3.h"
+#include "../math/Vec2.h"
 
 class BinaryStream;
 class NetworkIdentifier;
@@ -11,7 +14,7 @@ class Packet {
 
 public:
     int unk_4 = 2, unk_8 = 1;
-    bool unk_C = 0;
+    unsigned char playerSubIndex = 0;
 
     virtual ~Packet();
     virtual void* getId() const = 0;
@@ -59,6 +62,23 @@ public:
     int face; // 20
     int action; // 24
     EntityRuntimeID entityId;
+    virtual void* getId() const;
+    virtual void* getName() const;
+    virtual void* write(BinaryStream&) const;
+    virtual void* read(BinaryStream&);
+    virtual void* handle(NetworkIdentifier const&, NetEventCallback&) const;
+};
+class MovePlayerPacket : public Packet {
+public:
+    EntityRuntimeID entityId; // 18
+    Vec3 pos; // 24
+    Vec2 rot; // 2c
+    float headRot; // 30
+    unsigned char mode; // 31
+    bool onGround; // 32~34
+    EntityRuntimeID ridingEntityId; // 3c
+    int unknown_3C, unknown_40; // 44
+
     virtual void* getId() const;
     virtual void* getName() const;
     virtual void* write(BinaryStream&) const;

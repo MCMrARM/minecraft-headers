@@ -51,7 +51,7 @@ public:
     virtual void* getOwnerEntityType();
     virtual void* remove();
     virtual void setPos(Vec3 const&);
-    virtual void* getPos() const;
+    virtual Vec3 const& getPos() const;
     virtual void* getPosOld() const;
     virtual void* getPosExtrapolated(float) const;
     virtual void* getVelocity() const;
