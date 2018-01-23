@@ -14,6 +14,7 @@ class CommandOutput {
 public:
 
     void success();
+    void error(std::string const&, std::vector<CommandOutputParameter> const& = {});
     void addMessage(std::string const&, std::vector<CommandOutputParameter> const& = {}, CommandOutputMessageType = CommandOutputMessageType::DEFAULT);
 
 };
