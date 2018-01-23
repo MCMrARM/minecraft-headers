@@ -7,26 +7,35 @@
 #include "SavedData.h"
 
 enum class DimensionId;
+enum class GeneratorType;
 class Player;
 class Level;
 class BiomeSource;
 class Packet;
+class ChunkSource;
+class BlockSource;
+class RuntimeLightingManager;
 
 class Dimension : public LevelListener, public SavedData {
 
 public:
     char filler[0xC-8];
     std::string dimensionName; // 10
-    int filler2; // 14
+    Level* level; // 14
     short unk_14; // 18
     ThreadLocal<BiomeSource> biomeSource; // 40
-    char filler3[0x6C - 0x40];
+    std::unique_ptr<BlockSource> blockSource; // 44
+    char filler3[0x6C - 0x44];
     unsigned char maxBrightness; // 0x6D
     char filler4[0x70 - 0x6D];
     DimensionId id;
     char filler5[0x76 - 0x74];
     bool unk_76;
-    char filler6[0x2000];
+    char filler6[0xC4 - 0x77];
+    std::unique_ptr<ChunkSource> chunkSource;
+    char filler7[0x134 - 0xC8];
+    std::unique_ptr<RuntimeLightingManager> runtimeLightingManager;
+    char filler8[0x2000];
 
     // virtual
     virtual ~Dimension();
@@ -65,5 +74,7 @@ public:
 
     // non virtual
     Dimension(Level&, DimensionId, short);
+
+    std::unique_ptr<ChunkSource> _createGenerator(GeneratorType);
 
 };

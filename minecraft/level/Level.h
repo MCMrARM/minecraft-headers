@@ -6,6 +6,8 @@
 
 class Player;
 class PacketSender;
+class LevelStorage;
+class LevelData;
 
 class Level : public BlockSourceListener {
 
@@ -24,6 +26,10 @@ public:
     virtual void tick();
 
     std::vector<std::unique_ptr<Player>>& getUsers();
+
+    LevelStorage* getLevelStorage();
+
+    LevelData* getLevelData();
 
     void setPacketSender(PacketSender*);
     PacketSender* getPacketSender() const;

@@ -20,7 +20,7 @@ public:
     virtual void* getKeysForPrefix(std::string const&) = 0;
     virtual void* deserializeKey(KeySpan const&, StringByteInput&);
     virtual void* loadLevelData(LevelData&) = 0;
-    virtual void* createChunkStorage(std::unique_ptr<ChunkSource>, StorageVersion) = 0;
+    virtual std::unique_ptr<ChunkSource> createChunkStorage(std::unique_ptr<ChunkSource>, StorageVersion) = 0;
     virtual void* saveLevelData(LevelData const&) = 0;
     virtual void* getFullPath() const = 0;
     virtual void* savePlayerData(std::string const&, std::string&&) = 0;
