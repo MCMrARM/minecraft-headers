@@ -7,6 +7,11 @@ enum class PlayerPermissionLevel {
 class Abilities {
 
 public:
+    char filler[0x48];
+
+    Abilities();
+    Abilities(Abilities const&);
+
     void setPlayerPermissions(PlayerPermissionLevel level);
 
     bool getBool(std::string const&) const;
@@ -15,6 +20,7 @@ public:
     void setAbility(std::string const&, bool);
     void setAbility(std::string const&, float);
 
+    static std::string MAYFLY;
     static std::string WALKSPEED;
 
 };

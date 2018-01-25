@@ -11,6 +11,8 @@ class LevelData;
 class Dimension;
 class ChangeDimensionRequest;
 class AdventureSettings;
+class Abilities;
+class BlockPos;
 enum class DimensionId;
 
 class Level : public BlockSourceListener {
@@ -43,5 +45,9 @@ public:
     void requestPlayerChangeDimension(Player&, std::unique_ptr<ChangeDimensionRequest>);
 
     AdventureSettings& getAdventureSettings();
+
+    Abilities& getDefaultAbilities();
+
+    BlockPos const& getSharedSpawnPos();
 
 };
