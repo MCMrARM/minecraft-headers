@@ -1,5 +1,12 @@
 #pragma once
 
+class Level;
+class Dimension;
+class ChunkSource;
+class Entity;
+class ItemInstance;
+struct BlockPos;
+
 class BlockSource {
 
 public:
@@ -8,5 +15,7 @@ public:
     virtual ~BlockSource();
 
     BlockSource(Level&, Dimension&, ChunkSource&, bool, bool);
+
+    bool checkBlockDestroyPermissions(Entity&, BlockPos const&, ItemInstance const&, bool);
 
 };

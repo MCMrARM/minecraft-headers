@@ -10,6 +10,7 @@ class LevelStorage;
 class LevelData;
 class Dimension;
 class ChangeDimensionRequest;
+class AdventureSettings;
 enum class DimensionId;
 
 class Level : public BlockSourceListener {
@@ -40,5 +41,7 @@ public:
     Dimension* createDimension(DimensionId);
 
     void requestPlayerChangeDimension(Player&, std::unique_ptr<ChangeDimensionRequest>);
+
+    AdventureSettings& getAdventureSettings();
 
 };

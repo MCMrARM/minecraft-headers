@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "../entity/EntityRuntimeID.h"
+#include "../entity/EntityUniqueID.h"
 #include "../math/Vec3.h"
 #include "../math/Vec2.h"
 

@@ -8,6 +8,7 @@ class Vec3;
 class AABB;
 class BlockPos;
 class Level;
+class BlockSource;
 class Dimension;
 class Block;
 class FullBlock;
@@ -30,6 +31,7 @@ enum class EntityEvent;
 enum class InputMode;
 enum class MaterialType;
 enum class ArmorSlot;
+enum class CommandPermissionLevel;
 namespace Util { class HashString; }
 
 class Entity {
@@ -86,7 +88,7 @@ public:
     virtual bool canShowNameTag();
     virtual bool canExistInPeaceful() const;
     virtual void setNameTagVisible(bool);
-    virtual void* getNameTag() const;
+    virtual std::string const& getNameTag() const;
     virtual std::string getFormattedNameTag() const;
     virtual void* filterFormattedNameTag(UIProfanityContext const&);
     virtual void setNameTag(std::string const&);
@@ -165,7 +167,7 @@ public:
     virtual void* getEntityTypeId() const = 0;
     virtual void* acceptClientsideEntityData(Player&, SetEntityDataPacket const&);
     virtual void* queryEntityRenderer();
-    virtual void* getSourceUniqueID() const;
+    virtual EntityUniqueID getSourceUniqueID() const;
     virtual void setOnFire(int);
     virtual void* getHandleWaterAABB() const;
     virtual void* handleInsidePortal(BlockPos const&);
@@ -191,7 +193,7 @@ public:
     virtual bool canSynchronizeNewEntity() const;
     virtual void* stopRiding(bool, bool);
     virtual void* buildDebugInfo(std::string&) const;
-    virtual void* getCommandPermissionLevel() const;
+    virtual CommandPermissionLevel getCommandPermissionLevel() const;
     virtual void* openContainerComponent(Player&);
     virtual void* useItem(ItemInstance&) const;
     virtual bool hasOutputSignal(signed char) const;
@@ -234,6 +236,7 @@ public:
     virtual void* onSizeUpdated();
 
     // non virtual
+    BlockSource* getRegion() const;
     Level* getLevel();
     Level const* getLevel() const;
     void _setLevelPtr(Level*);

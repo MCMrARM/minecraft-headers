@@ -2,6 +2,7 @@
 
 #include <memory>
 #include "Mob.h"
+#include "Abilities.h"
 
 class ChunkSource;
 class NetworkIdentifier;
@@ -14,13 +15,16 @@ class Tick;
 class Packet;
 class EventPacket;
 class Item;
-enum class CommandPermissionLevel;
+class PlayerInventoryProxy;
 enum class CooldownType;
 enum class GameType;
 
 class Player : public Mob {
 
 public:
+    char filler[0x1074 - 4];
+    Abilities abilities;
+
     // virtual
     virtual void* reloadHardcoded(Entity::InitializationMethod, VariantParameterList const&);
     virtual void* initializeComponents(Entity::InitializationMethod, VariantParameterList const&);
@@ -53,7 +57,7 @@ public:
     virtual bool canAddRider(Entity&) const;
     virtual bool canBePulledIntoVehicle() const;
     virtual void* sendMotionPacketIfNeeded();
-    virtual void* getCommandPermissionLevel() const;
+    virtual CommandPermissionLevel getCommandPermissionLevel() const;
     virtual void* useItem(ItemInstance&) const;
     virtual void* getMapDecorationRotation();
     virtual bool isWorldBuilder();
@@ -179,7 +183,7 @@ public:
     virtual void* chorusFruitTeleport();
     virtual void* onMovePlayerPacketNormal(Vec3 const&, Vec2 const&, float);
 
-
+    PlayerInventoryProxy& getSupplies() const;
     NetworkIdentifier const& getClientId() const;
     unsigned char getClientSubId() const;
 

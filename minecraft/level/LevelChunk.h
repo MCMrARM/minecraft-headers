@@ -7,4 +7,6 @@ class LevelChunk {
 public:
     DimensionId getDimensionId() const;
 
+    void setSaved();
+
 };

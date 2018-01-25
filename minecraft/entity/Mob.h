@@ -8,6 +8,7 @@ enum class EquipmentSlot;
 
 class Mob : public Entity {
 
+public:
     // virtual
     virtual void* reloadHardcodedClient(Entity::InitializationMethod, VariantParameterList const&);
     virtual void* initializeComponents(Entity::InitializationMethod, VariantParameterList const&);
