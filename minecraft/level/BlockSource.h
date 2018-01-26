@@ -16,6 +16,8 @@ public:
 
     BlockSource(Level&, Dimension&, ChunkSource&, bool, bool);
 
+    BlockPos getHeightmapPos(BlockPos const&);
+
     bool checkBlockDestroyPermissions(Entity&, BlockPos const&, ItemInstance const&, bool);
 
 };

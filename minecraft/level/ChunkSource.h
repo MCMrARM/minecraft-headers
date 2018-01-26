@@ -7,10 +7,13 @@ class ChunkViewSource;
 class Random;
 class BlockSource;
 class LevelChunk;
+class Dimension;
 
 class ChunkSource {
 
 public:
+    char filler[0x14];
+
     enum class LoadMode;
 
     virtual ~ChunkSource();
@@ -21,7 +24,7 @@ public:
     virtual void* createNewChunk(ChunkPos const&, LoadMode);
     virtual void* postProcess(ChunkViewSource&);
     virtual void* checkAndReplaceChunk(ChunkViewSource&, LevelChunk&);
-    virtual void* loadChunk(LevelChunk&, bool);
+    virtual void loadChunk(LevelChunk&, bool);
     virtual void* postProcessMobsAt(BlockSource*, int, int, Random&);
     virtual void saveLiveChunk(LevelChunk&);
     virtual void* hintDiscardBatchBegin();
@@ -30,9 +33,10 @@ public:
     virtual void* compact();
     virtual void flushPendingWrites();
     virtual bool isWithinWorldLimit(ChunkPos const&);
-    virtual void* getStorage();
+    virtual void* getStorage() const;
 
     ChunkSource(ChunkSource&);
+    ChunkSource(Dimension*, int);
     ChunkSource(std::unique_ptr<ChunkSource>);
 
 };

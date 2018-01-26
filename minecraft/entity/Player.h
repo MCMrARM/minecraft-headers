@@ -22,7 +22,7 @@ enum class GameType;
 class Player : public Mob {
 
 public:
-    char filler[0x1074 - 4];
+    char filler[0x1074 - 0x6C];
     Abilities abilities;
 
     // virtual

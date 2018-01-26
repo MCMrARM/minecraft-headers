@@ -15,6 +15,7 @@ class Packet;
 class ChunkSource;
 class BlockSource;
 class RuntimeLightingManager;
+class WorldGenerator;
 
 class Dimension : public LevelListener, public SavedData {
 
@@ -32,8 +33,9 @@ public:
     char filler5[0x76 - 0x74];
     bool unk_76;
     char filler6[0xC4 - 0x77];
-    std::unique_ptr<ChunkSource> chunkSource;
-    char filler7[0x134 - 0xC8];
+    std::unique_ptr<ChunkSource> chunkSource; // C8
+    WorldGenerator* generator; // CC
+    char filler7[0x134 - 0xCC];
     std::unique_ptr<RuntimeLightingManager> runtimeLightingManager;
     char filler8[0x2000];
 

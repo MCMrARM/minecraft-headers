@@ -37,6 +37,9 @@ namespace Util { class HashString; }
 class Entity {
 
 public:
+    char filler[0x68 - 4];
+    DimensionId dimensionId; // 6C
+
     enum class InitializationMethod;
     class VariantParameterList;
 
