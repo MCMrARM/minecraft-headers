@@ -158,4 +158,6 @@ public:
     virtual void* _endJump();
     virtual void* updateGliding();
 
+    void serializationSetHealth(int);
+
 };
