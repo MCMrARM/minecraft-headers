@@ -187,6 +187,8 @@ public:
     NetworkIdentifier const& getClientId() const;
     unsigned char getClientSubId() const;
 
+    static Attribute HUNGER;
+
 };
 
 enum class DimensionId;

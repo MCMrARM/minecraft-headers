@@ -3,6 +3,7 @@
 #include "Entity.h"
 
 class Attribute;
+class AttributeInstance;
 class MobEffectInstance;
 enum class EquipmentSlot;
 
@@ -108,8 +109,8 @@ public:
     virtual void* joinCaravan(Mob*);
     virtual bool hasCaravanTail() const;
     virtual void* getCaravanHead() const;
-    virtual void* getMutableAttribute(Attribute const&);
-    virtual void* getAttribute(Attribute const&) const;
+    virtual AttributeInstance* getMutableAttribute(Attribute const&);
+    virtual AttributeInstance const* getAttribute(Attribute const&) const;
     virtual void* getEquipmentCount() const;
     virtual void* getArmorValue();
     virtual void* getArmorCoverPercentage() const;
