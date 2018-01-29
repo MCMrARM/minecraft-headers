@@ -188,6 +188,7 @@ public:
     unsigned char getClientSubId() const;
 
     static Attribute HUNGER;
+    static Attribute SATURATION;
 
 };
 
