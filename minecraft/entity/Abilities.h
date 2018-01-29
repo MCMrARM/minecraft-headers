@@ -23,6 +23,7 @@ public:
     static std::string MAYFLY;
     static std::string WALKSPEED;
     static std::string INVULNERABLE;
+    static std::string DOORS_AND_SWITCHES;
 
     Abilities& operator=(Abilities const&);
 
