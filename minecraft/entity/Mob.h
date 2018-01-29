@@ -42,7 +42,7 @@ public:
     virtual void* inCaravan() const;
     virtual void* stopRiding(bool, bool);
     virtual void* buildDebugInfo(std::string&) const;
-    virtual void* getYHeadRot() const;
+    virtual float getYHeadRot() const;
     virtual void* outOfWorld();
     virtual void* _hurt(EntityDamageSource const&, int, bool, bool);
     virtual void* readAdditionalSaveData(CompoundTag const&);

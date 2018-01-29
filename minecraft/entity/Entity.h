@@ -206,7 +206,7 @@ public:
     virtual void* stopSeenByPlayer(Player&);
     virtual void* getMapDecorationRotation();
     virtual void* getRiderDecorationRotation(Player&);
-    virtual void* getYHeadRot() const;
+    virtual float getYHeadRot() const;
     virtual bool isWorldBuilder();
     virtual bool isCreative() const;
     virtual bool isAdventure() const;
@@ -246,5 +246,6 @@ public:
     void _setDimension(Dimension&);
     EntityRuntimeID getRuntimeID() const;
     void _usePortal(DimensionId, DimensionId, int);
+    Vec2 getRotation() const;
 
 };
