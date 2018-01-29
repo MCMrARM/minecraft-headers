@@ -71,12 +71,14 @@ public:
     virtual void* deserialize(CompoundTag const&);
     virtual void* serialize(CompoundTag&) const;
     virtual void* sendBroadcast(Packet const&, Player*);
-    virtual void* startLeaveGame();
+    virtual void startLeaveGame();
     virtual void* getTimeOfDay(int, float) const;
 
     // non virtual
     Dimension(Level&, DimensionId, short);
 
     std::unique_ptr<ChunkSource> _createGenerator(GeneratorType);
+
+    bool isLeaveGameDone();
 
 };

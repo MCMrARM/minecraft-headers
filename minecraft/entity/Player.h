@@ -194,4 +194,7 @@ class NetworkIdentifier;
 
 class ServerPlayer : public Player {
 
+public:
+    void disconnect();
+
 };

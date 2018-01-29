@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <vector>
+#include <unordered_map>
 #include "BlockSourceListener.h"
 
 class Player;
@@ -19,7 +20,9 @@ class Level : public BlockSourceListener {
 
 public:
     char filler[0xc-4];
-    std::vector<std::unique_ptr<Player>> players;
+    std::vector<std::unique_ptr<Player>> players; // 18
+    char filler2[0x208 - 0x18];
+    std::unordered_map<int, std::unique_ptr<Dimension>> dimensions;
 
     virtual ~Level();
     virtual void addEntity(BlockSource&, std::unique_ptr<Entity>);

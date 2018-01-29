@@ -90,10 +90,10 @@ enum class TextPacketType : unsigned char { };
 class TextPacket : public Packet {
 public:
     TextPacketType type; // 10
-    std::string str1, str2; // 14, 18
+    std::string sender, message; // 14, 18
     std::vector<std::string> params; // 24
     bool unkBool; // 25
-    std::string str3;
+    std::string xuid;
 
     virtual void* getId() const;
     virtual void* getName() const;
@@ -101,6 +101,7 @@ public:
     virtual void* read(BinaryStream&);
     virtual void* handle(NetworkIdentifier const&, NetEventCallback&) const;
 
-    TextPacket(TextPacketType, std::string const&, std::string const&, std::vector<std::string> const&, bool, std::string const&);
+    TextPacket(TextPacketType t, std::string const& sender, std::string const& message, std::vector<std::string> const& params, bool b, std::string const& xuid) : type(t), sender(sender), message(message), params(params), unkBool(b), xuid(xuid) {
+    }
     static TextPacket createRaw(std::string const&);
 };
