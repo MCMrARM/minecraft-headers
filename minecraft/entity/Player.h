@@ -186,6 +186,8 @@ public:
     PlayerInventoryProxy& getSupplies() const;
     NetworkIdentifier const& getClientId() const;
     unsigned char getClientSubId() const;
+    void setContainerManager(std::shared_ptr<IContainerManager>);
+    std::shared_ptr<IContainerManager> getContainerManager();
 
     static Attribute HUNGER;
     static Attribute SATURATION;
