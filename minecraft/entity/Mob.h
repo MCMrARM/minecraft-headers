@@ -34,7 +34,7 @@ public:
     virtual void* animateHurt();
     virtual void* doFireHurt(int);
     virtual void* handleEntityEvent(EntityEvent, int);
-    virtual void* getEntityTypeId() const = 0;
+    virtual EntityType getEntityTypeId() const = 0;
     virtual void setOnFire(int);
     virtual void* causeFallDamage(float);
     virtual bool canAddRider(Entity&) const;

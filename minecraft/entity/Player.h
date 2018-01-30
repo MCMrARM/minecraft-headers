@@ -50,7 +50,7 @@ public:
     virtual void* awardKillScore(Entity&, int);
     virtual void setEquippedSlot(ArmorSlot, int, int);
     virtual void setEquippedSlot(ArmorSlot, ItemInstance const&);
-    virtual void* getEntityTypeId() const;
+    virtual EntityType getEntityTypeId() const;
     virtual void* getPortalCooldown() const;
     virtual void* getPortalWaitTime() const;
     virtual void* onSynchedDataUpdate(int);

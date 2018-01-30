@@ -25,6 +25,7 @@ class EntityInteraction;
 struct EntityLink;
 struct EntityUniqueID;
 struct EntityPos;
+enum class EntityType;
 enum class DimensionId;
 enum class LevelSoundEvent;
 enum class EntityEvent;
@@ -167,7 +168,7 @@ public:
     virtual void* saveWithoutId(CompoundTag&);
     virtual void* load(CompoundTag const&);
     virtual void* loadLinks(CompoundTag const&, std::vector<EntityLink>&);
-    virtual void* getEntityTypeId() const = 0;
+    virtual EntityType getEntityTypeId() const = 0;
     virtual void* acceptClientsideEntityData(Player&, SetEntityDataPacket const&);
     virtual void* queryEntityRenderer();
     virtual EntityUniqueID getSourceUniqueID() const;
