@@ -15,5 +15,14 @@ public:
     virtual void getLevelData();
     virtual void setLevelData();
     virtual std::unique_ptr<LevelStorage> createLevelStorage(std::string const&, std::string const&, IContentKeyProvider const&);
+    virtual void isNewLevelIdAcceptable();
+    virtual void clearAll();
+    virtual void deleteLevel();
+    virtual void renameLevel();
+    virtual void copyLevelFromFilePath();
+    virtual void isConvertible();
+    virtual void requiresConversion();
+    virtual void convertLevel();
+    virtual std::string getBasePath() const;
 
 };
